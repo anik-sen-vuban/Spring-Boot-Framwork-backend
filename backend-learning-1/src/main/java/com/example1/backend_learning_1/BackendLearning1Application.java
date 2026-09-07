@@ -70,6 +70,9 @@ public class BackendLearning1Application {
 //	Step 1: Browser sends request to localhost:8080/hello
 //	Step 2: Request reaches embedded Tomcat
 //	Step 3: Spring MVC checks the available mappings
+//			M = Model -> our data, like users, product etc
+//			V = View -> what the user sees, such as HTML page or JSON response
+//			C = Controller -> receives browser/API requests, runs logic, and returns a view or data
 //	Step 4: /hello is matched with sayHello()
 //	Step 5: sayHello() returns "Hello World"\
 //	Step 6: Response goes back to browser
@@ -88,9 +91,18 @@ public class BackendLearning1Application {
 // IF APPLICATION STARTS SLOWLY, could be -
 //	1. Too many BEANs being created
 //	2. Database connection taking time
-//	3. Auto-configuration doing extra work
+//	3. Auto Configuration doing extra work
 //	4. Heavy startup logic running
 //	5. External service call blocking startup
+
+// CONTROLLER DOES NOT RECEIVE REQUEST, possible reasons:
+//	1. Wrong port
+//	2. Wrong url
+//	3. Application not running
+//	4. Controller not detected
+//	5. Incorrect annotation
+//	6. context path configured
+//	7. Request blocked by security
 
 // BEAN is an object that Spring creates and manages for us.
 // Spring can create it, configure it, and give it to other classes when needed.
@@ -104,4 +116,4 @@ public class BackendLearning1Application {
 //	@Configuration with @Bean — manually creates a bean
 //	@Service, @Repository, @Controller, and @RestController are specialized forms of @Component.
 
-//DONE Lec2
+//DONE LEC2
