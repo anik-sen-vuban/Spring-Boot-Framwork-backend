@@ -103,3 +103,5 @@ public class BackendLearning1Application {
 //	@RestController — bean for REST APIs
 //	@Configuration with @Bean — manually creates a bean
 //	@Service, @Repository, @Controller, and @RestController are specialized forms of @Component.
+
+//DONE Lec2
