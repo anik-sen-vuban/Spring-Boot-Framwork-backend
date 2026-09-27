@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/backend-learning-1/backend-learning-1/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend-learning-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ApplicationPropertiesDemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ApplicationPropertiesWithManyFieldsDemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CRUDSpringBootDemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/StartSpringBootApplicationUsingAppRunner/src/main/java" charset="UTF-8" />
   </component>
 </project>

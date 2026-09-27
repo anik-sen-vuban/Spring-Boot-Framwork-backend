@@ -6,12 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="backend-learning-1" />
+        <module name="ApplicationPropertiesDemo" />
+        <module name="StartSpringBootApplicationUsingAppRunner" />
+        <module name="CRUDSpringBootDemo" />
+        <module name="ApplicationPropertiesWithManyFieldsDemo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="backend-learning-1" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApplicationPropertiesDemo" options="-parameters" />
+      <module name="ApplicationPropertiesWithManyFieldsDemo" options="-parameters" />
+      <module name="CRUDSpringBootDemo" options="-parameters" />
+      <module name="StartSpringBootApplicationUsingAppRunner" options="-parameters" />
       <module name="backend-learning-1" options="-parameters" />
     </option>
   </component>
