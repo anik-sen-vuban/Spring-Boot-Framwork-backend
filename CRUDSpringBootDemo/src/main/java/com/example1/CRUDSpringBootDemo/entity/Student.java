@@ -2,12 +2,14 @@ package com.example1.CRUDSpringBootDemo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity //it referes Student class will be a table of a database
+@Table(name="students") //tells JPA the name of the database table, without it JPA usually uses the class name as the table name
 public class Student {
 
     @Id //to make a unique primary key for a object of the table
-    private long id;
+    private Long id;
 
     private String name;
     private int age;

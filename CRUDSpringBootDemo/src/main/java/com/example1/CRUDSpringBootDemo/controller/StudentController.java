@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/students")
 public class StudentController {
@@ -20,7 +23,7 @@ public class StudentController {
     //create Student
 //    @PostMapping("/create") // if we need an end point for a specific operation
 //    which operation should be made for same api is depends on methods, make a new end point for a specific operation is not mandatory
-    @PostMapping
+//    @PostMapping
 //    public Student createStudent(@RequestBody Student student){ //Jackson library convert the JSON request into the Java object
 //        //to see the JSON request it could be handled or not (terminal view)
 //        System.out.println("Name: " + student.getName());
@@ -30,17 +33,74 @@ public class StudentController {
 //        System.out.println("Exit Student controller");
 //        return createdStudent;
 //    }
+    @PostMapping
     public ResponseEntity<Student> createdStudent(@RequestBody Student student) {
-        System.out.println("Inside Student Controller");
+//        System.out.println("Inside Student Controller");
         Student createdStudent = studentService.createdStudent(student);
-        System.out.println("Exit Student Controller");
+//        System.out.println("Exit Student Controller");
 //        return ResponseEntity.status(201).body(createdStudent);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdStudent);
     }
 
-    //read student
+    //read a student by id, using @PathVariable like "/api/student/{id}", another one is parameterized like "/api/student?id={value}" or "/api/student?id={value}&name={value)"
+    @GetMapping("{id}")
+    public ResponseEntity<Student> getStudent(@PathVariable Long id) {
+        Optional<Student> studentResp = studentService.getStudentById(id);
 
-    //update student
+//        if(studentResp == null){
+//            return ResponseEntity.status((HttpStatus.NOT_FOUND)).body(null); // returns response body = null
+//            return ResponseEntity.notFound().build(); //returns empty response body
+//        }
+//        return ResponseEntity.status(HttpStatus.OK).body(studentResp);
+        if(studentResp.isPresent()){
+            return ResponseEntity.status(HttpStatus.OK).body(studentResp.get());
+        }
+        return ResponseEntity.notFound().build();
+        //build() : now create the final object/response
+    }
+
+    //read all student
+    @GetMapping
+    public ResponseEntity<List<Student>> getAllStudent(){
+        List<Student> studentList = studentService.getAllStudent();
+
+        if(studentList.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(studentList);
+    }
+
+    //update a student
+//    @PutMapping("{id}")
+//    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student studentReq){
+//        Student studentResp = studentService.updateStudent(id, studentReq);
+//
+//        if(studentResp == null){
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.status(HttpStatus.OK).body(studentResp);
+//    }
+    @PutMapping("{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id,
+                                                 @RequestBody Student studentreq){
+//        Student studentResp = studentService.updateStudent(id);
+//
+//        if(studentResp == null){
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.status(HttpStatus.OK).body(studentResp);
+        Optional<Student> studentResp = studentService.updateStudent(id, studentreq);
+        if(studentResp == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(studentResp.get());
+    }
 
     //delete student
+    @DeleteMapping("{id}")
+    public ResponseEntity<Student> deleteStudent(Long id, @RequestBody Student student){
+
+        //Pending.....
+
+        return ResponseEntity.ok().body(student);    }
 }
