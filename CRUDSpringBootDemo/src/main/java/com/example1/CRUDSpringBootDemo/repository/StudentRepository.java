@@ -5,9 +5,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 //@Component
 //@Repository // it let a developer better understanding that it is a repository, it also uses @Component
 public interface StudentRepository extends JpaRepository<Student, Long> {
+    Optional<Student> findByIdAndIsDeletedFalse(Long id);
+
+    List<Student> findAllByIsDeletedFalse();
 
 //    public Student saveStudent(Student studentReq){
         //save to db

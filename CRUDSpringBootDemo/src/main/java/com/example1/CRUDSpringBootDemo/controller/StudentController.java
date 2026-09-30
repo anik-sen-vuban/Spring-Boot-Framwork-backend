@@ -43,8 +43,8 @@ public class StudentController {
     }
 
     //read a student by id, using @PathVariable like "/api/student/{id}", another one is parameterized like "/api/student?id={value}" or "/api/student?id={value}&name={value)"
-    @GetMapping("{id}")
-    public ResponseEntity<Student> getStudent(@PathVariable Long id) {
+    @GetMapping(/*"{id}"*/ params = "id")
+    public ResponseEntity<Student> getStudent(/*@PathVariable*/ @RequestParam Long id) {
         Optional<Student> studentResp = studentService.getStudentById(id);
 
 //        if(studentResp == null){
@@ -80,8 +80,8 @@ public class StudentController {
 //        }
 //        return ResponseEntity.status(HttpStatus.OK).body(studentResp);
 //    }
-    @PutMapping("{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable Long id,
+    @PutMapping(/*"{id}"*/ params = "id")
+    public ResponseEntity<Student> updateStudent(/*@PathVariable*/ @RequestParam Long id,
                                                  @RequestBody Student studentreq){
 //        Student studentResp = studentService.updateStudent(id);
 //
@@ -97,10 +97,24 @@ public class StudentController {
     }
 
     //delete student
-    @DeleteMapping("{id}")
-    public ResponseEntity<Student> deleteStudent(Long id, @RequestBody Student student){
+    @DeleteMapping(/*"{id}"*/ params = "id")
+    public ResponseEntity<String> deleteStudent(/*@PathVariable*/ @RequestParam Long id){
+        boolean isDeleted = studentService.deleteStudent(id);
+        if(!isDeleted){
+            return ResponseEntity.notFound().build();
+        }
+//        return ResponseEntity.ok().body("Student deleted");
+        return ResponseEntity.ok("Record Deleted");
+    }
 
-        //Pending.....
+    //Softly delete
+    @PatchMapping(/*"{id}"*/ params = "id")
+    public ResponseEntity<String> deleteStudentSoftly(/*@PathVariable*/ @RequestParam Long id){
+        boolean isDeleted = studentService.deleteStudentSoftly(id);
 
-        return ResponseEntity.ok().body(student);    }
+        if(isDeleted){
+            return ResponseEntity.ok("Record Deleted Softly");
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
