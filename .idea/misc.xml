@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/ApplicationPropertiesDemo/pom.xml" />
         <option value="$PROJECT_DIR$/ApplicationPropertiesWithManyFieldsDemo/pom.xml" />
         <option value="$PROJECT_DIR$/StartSpringBootApplicationUsingAppRunner/pom.xml" />
+        <option value="$PROJECT_DIR$/StudentManagement/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
