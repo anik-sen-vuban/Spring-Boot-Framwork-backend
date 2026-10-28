@@ -9,7 +9,7 @@ import java.util.Optional;
 
 //@Repository no need to use cause Spring Data JPA automatically detects interfaces that extend JpaRepository
 public interface StudentRepository extends JpaRepository<Student, Long> {
-//    List<Student> findByIsDeletedFalse();
+    List<Student> findByIsDeletedFalse();
 //
-//    Optional<Student> findByIdAndIsDeletedFalse(Long id);
+    Optional<Student> findByIdAndIsDeletedFalse(Long id);
 }

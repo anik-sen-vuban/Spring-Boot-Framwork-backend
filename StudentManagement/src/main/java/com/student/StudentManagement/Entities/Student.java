@@ -13,7 +13,9 @@ public class Student {
     private String email;
     private Integer age;
     private String subject;
-//    private Boolean isDeleted;
+
+//    @Column()
+    private Boolean isDeleted;
 
     public Long getId() {
         return id;
@@ -51,12 +53,12 @@ public class Student {
         this.subject = subject;
     }
 
-    //
-//    public Boolean getDeleted() {
-//        return isDeleted;
-//    }
-//
-//    public void setDeleted(Boolean deleted) {
-//        isDeleted = deleted;
-//    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
 }
