@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="demoStudentManagementDto" />
         <module name="StudentManagement" />
         <module name="ApplicationPropertiesDemo" />
         <module name="StartSpringBootApplicationUsingAppRunner" />
@@ -25,6 +26,7 @@
       <module name="StartSpringBootApplicationUsingAppRunner" options="-parameters" />
       <module name="StudentManagement" options="-parameters" />
       <module name="backend-learning-1" options="-parameters" />
+      <module name="demoStudentManagementDto" options="-parameters" />
     </option>
   </component>
 </project>

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PaymentService {
-//    private String providerName = "Bkash"; //Wrong whent taking value from application.properties
+//    private String providerName = "Bkash"; //Wrong when taking value from application.properties
 //    private int retryCount = 3; //Wrong
 
     @Value("${payment.provider:Bkash}")
